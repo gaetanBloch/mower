@@ -15,8 +15,8 @@
     <lombok.version>1.18.24</lombok.version>
     <mockito.junit.version>4.6.1</mockito.junit.version>
     <assertj.version>3.23.1</assertj.version>
-    <surefire-plugin.version>3.0.0-M7</surefire-plugin.version>
     <junit.version>5.9.0</junit.version>
+    <surefire.version>3.0.0-M7</surefire.version>
   </properties>
 
   <dependencyManagement>
@@ -69,14 +69,11 @@
           </compilerArgs>
         </configuration>
       </plugin>
+
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire-plugin.version}</version>
-        <configuration>
-          <systemPropertyVariables>
-            <maven.home>${maven.home}</maven.home>
-          </systemPropertyVariables>
-        </configuration>
+        <version>${surefire.version}</version>
       </plugin>
     </plugins>
   </build>
