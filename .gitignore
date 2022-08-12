@@ -145,3 +145,6 @@ target/
 
 # Gradle Wrapper
 !.gradle/wrapper/gradle-wrapper.jar
+
+# this Keep this jar
+!/script/mower-1.0.jar

@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.gbloch</groupId>
   <artifactId>mower</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0</version>
   <properties>
     <compiler-plugin.version>3.8.1</compiler-plugin.version>
     <maven.compiler.release>17</maven.compiler.release>
@@ -17,6 +17,7 @@
     <assertj.version>3.23.1</assertj.version>
     <junit.version>5.9.0</junit.version>
     <surefire.version>3.0.0-M7</surefire.version>
+    <jar-plugin.version>3.2.2</jar-plugin.version>
   </properties>
 
   <dependencyManagement>
@@ -74,6 +75,22 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire.version}</version>
+      </plugin>
+
+      <plugin>
+        <!-- Build an executable JAR -->
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${jar-plugin.version}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>lib/</classpathPrefix>
+              <mainClass>io.gbloch.mower.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
       </plugin>
     </plugins>
   </build>
